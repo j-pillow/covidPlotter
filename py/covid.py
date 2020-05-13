@@ -45,7 +45,7 @@ def makePlots( df, isoCode ):
     plt.xticks(xticks)
     ax.legend(loc='upper left', bbox_to_anchor=(0,1),frameon=False)
     ax2.legend(loc='upper left', bbox_to_anchor=(0,0.955),frameon=False)
-    plt.savefig("/Users/james/covid/plots/daily_cases_{}.png".format(isoCode))
+    plt.savefig("plots/daily_cases_{}.png".format(isoCode))
 #    print("Figure saved as daily_cases_{}.png".format(isoCode))
 
 
@@ -68,7 +68,7 @@ def makePlots( df, isoCode ):
     plt.xticks(xticks)
     ax.legend(loc='upper left', bbox_to_anchor=(0,1),frameon=False)
     ax2.legend(loc='upper left', bbox_to_anchor=(0,0.955),frameon=False)
-    plt.savefig("/Users/james/covid/plots/daily_deaths_{}.png".format(isoCode))
+    plt.savefig("plots/daily_deaths_{}.png".format(isoCode))
 #    print("Figure saved as daily_deaths_{}.png".format(isoCode))
 
 # ===== /Define Functions/ =====
@@ -85,8 +85,8 @@ if __name__ == '__main__':
     print(country)
     
     r = requests.get('https://covid.ourworldindata.org/data/owid-covid-data.csv', allow_redirects=True)
-    open('/Users/james/covid/data/owid_covid_data.csv', 'wb').write(r.content)
-    df = pd.read_csv("/Users/james/covid/data/owid_covid_data.csv")
+    open('data/owid_covid_data.csv', 'wb').write(r.content)
+    df = pd.read_csv("data/owid_covid_data.csv")
 
     countryList = list(df.location.unique())
     isoList     = list(df.iso_code.unique())
